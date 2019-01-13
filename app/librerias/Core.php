@@ -9,10 +9,19 @@
         protected $parametroDefault   = [];
 
         public function __construct() {
-            $url = $this->obtenerUrl();
+            //print_r($this->obtenerUrl());
+            //$url = $this->obtenerUrl();
         }
         
         public function obtenerUrl() {
-            echo $_GET['url'];
+            //echo $_GET['url'];
+
+            if(isset($_GET['url'])){
+                //Cortar espacios a la derecha de la url y validar la url
+                $url = rtrim($_GET['url'],'/');
+                $url = filter_var($url,FILTER_SANITIZE_URL);
+                $url = explode('/',$url);
+                 return $url;
+            }
         }
     }
