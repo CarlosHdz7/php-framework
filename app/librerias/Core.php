@@ -6,11 +6,12 @@
     class Core{
         protected $controladorDefault = 'welcome';
         protected $metodoDefault      = 'index';
-        protected $parametroDefault   = [];
+        protected $parametrosDefault   = [];
 
         public function __construct() {
             $url = $this->obtenerUrl();
 
+            /* OBTENER CONTROLADOR*/
             //verificar en la carpeta "controladores" si el controlador existe
             if(file_exists('../app/controladores/'.ucwords($url[0]).'.php')) {
                 //Si existe se configura como controlador por defecto
@@ -25,7 +26,23 @@
             //requerir el controlador
             //el controlador se puede llamar sin la extension .php
             require_once '../app/controladores/'.$this->controladorDefault. '.php';
+            //Se crea una instancia para poder verificar si un metodo existe dentro del controlador
             $this->controladorDefault = new $this->controladorDefault;
+
+            /* OBTENER METODO*/
+            //revisamos si en la url despues del controlador, se escribió un metodo
+            if(isset($url[1])){
+                if(method_exists($this->controladorDefault, $url[1])){
+                    //Asigamos el metodo
+                    $this->metodoDefault = $url[1];
+                    unset($url[1]);
+                }
+            }
+            //Si no existe entonces siempre cargara index
+            echo "Metodo: ".$this->metodoDefault;
+
+            /* OBTENER PARAMETROS*/
+            $this->parametrosDefault
         }
         
         public function obtenerUrl() {
