@@ -39,10 +39,14 @@
                 }
             }
             //Si no existe entonces siempre cargara index
-            echo "Metodo: ".$this->metodoDefault;
+            echo "Metodo: ".$this->metodoDefault."</br>";
 
             /* OBTENER PARAMETROS*/
-            $this->parametrosDefault
+            //Se obtienen los valores por url pero si no se deja un array vacio
+            $this->parametrosDefault = $url ? array_values($url) : [];
+
+            //Llamar callback con parametros
+            call_user_func_array([$this->controladorDefault,$this->metodoDefault],$this->parametrosDefault);
         }
         
         public function obtenerUrl() {
