@@ -1,7 +1,6 @@
 <?php   
     //ruta de la aplicacion
     define('RUTA_APP', dirname(dirname(__FILE__)));
-    echo dirname(dirname(__FILE__));
 
     //ruta url ejemplo: http://localhost/framework/
     define('RUTA_URL', 'http://localhost/framework/');

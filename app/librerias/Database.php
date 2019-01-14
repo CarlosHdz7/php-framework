@@ -1,5 +1,4 @@
 <?php
-    //Clase de conexion a la base de datos y ejecutar consultas
     class Database{
         private $host = DB_HOST;
         private $usuario = DB_USUARIO;

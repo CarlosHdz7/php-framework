@@ -1,25 +1,14 @@
 <?php
     class Welcome extends Controlador{
+
         public function __construct(){
-            echo "Controlador: Welcome" . "</br>";
-            $this->articuloModelo = $this->modelo('Articulo');
+            $this->exampleModel = $this->modelo('Example');
         }
 
         public function index(){
             $datos = [
-                'titulo' => "Bienvenido"
+                'titulo' => "Framework MVC"
             ];
-            $this->vista('paginaweb/home',$datos);
-        }
-
-        public function Articulo(){
-
-        }
-
-        public function Actualizar($num,$num2){
-            echo "Parametro: ".$num;
-            echo "Parametro: ".$num2;
+            $this->vista('home',$datos);
         }
     }
-
-//El nombre de los controladores va en plural y modelo en singular 
