@@ -2,6 +2,7 @@
     class Welcome extends Controlador{
         public function __construct(){
             echo "Controlador: Welcome" . "</br>";
+            $this->articuloModelo = $this->modelo('Articulo');
         }
 
         public function index(){
@@ -20,3 +21,5 @@
             echo "Parametro: ".$num2;
         }
     }
+
+//El nombre de los controladores va en plural y modelo en singular 
