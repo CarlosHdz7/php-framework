@@ -1,13 +1,9 @@
 <?php
     //Cargar todas las librerias
     require_once 'config/Configurar.php';
-
+    require_once 'helpers/url_helper.php';
     //Autoload
     //Cargamos todas las clases dentro de la carpeta "librerias/"
-    
-    //require_once 'librerias/Controlador.php';
-    //require_once 'librerias/Core.php';
-    //require_once 'librerias/Database.php';
 
     spl_autoload_register(function($nombreClase){
         require_once 'librerias/'. $nombreClase.'.php';

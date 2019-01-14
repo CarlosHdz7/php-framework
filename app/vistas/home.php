@@ -22,6 +22,7 @@
         }
         h1,h3{
             margin:0;
+            color:#263238;
         }
         h1{
             font-size:60px;
